@@ -30,6 +30,8 @@ public class PopulationManager : MonoBehaviour
             go.GetComponent<DNA>().r = Random.Range(0.0f, 1.0f);
             go.GetComponent<DNA>().g = Random.Range(0.0f, 1.0f);
             go.GetComponent<DNA>().b = Random.Range(0.0f, 1.0f);
+            go.GetComponent<DNA>().s = Random.Range(0.1f, 0.3f);
+
             population.Add(go);
         }
     }
@@ -43,17 +45,19 @@ public class PopulationManager : MonoBehaviour
 
         //swap parent dna -----> This is the main part of the genetic algorithm
 
-        if (Random.Range(0, 100) < 5)
+        if (Random.Range(0, 1000) > 5)
         {
             offspring.GetComponent<DNA>().r = Random.Range(0, 10) < 5 ? dna1.r : dna2.r;
             offspring.GetComponent<DNA>().g = Random.Range(0, 10) < 5 ? dna1.g : dna2.g;
             offspring.GetComponent<DNA>().b = Random.Range(0, 10) < 5 ? dna1.b : dna2.b;
+            offspring.GetComponent<DNA>().s = Random.Range(0, 10) < 5 ? dna1.s : dna2.s;
         }
         else
         {
             offspring.GetComponent<DNA>().r = Random.Range(0.0f, 1.0f);
             offspring.GetComponent<DNA>().g = Random.Range(0.0f, 1.0f);
             offspring.GetComponent<DNA>().b = Random.Range(0.0f, 1.0f);
+            offspring.GetComponent<DNA>().s = Random.Range(0.1f, 0.3f);
         }
 
         
