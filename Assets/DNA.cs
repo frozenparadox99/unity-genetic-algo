@@ -4,10 +4,31 @@ using UnityEngine;
 
 public class DNA : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // gene for color
+    public float r;
+    public float g;
+    public float b;
+
+    bool dead = false;
+    public float timeToDie = 0;
+
+    SpriteRenderer sRenderer;
+    Collider2D sCollider;
+
+    private void OnMouseDown()
+    {
+        dead = true;
+        timeToDie = PopulationManager.elapsed;
+        Debug.Log("Dead at : " + timeToDie);
+        sRenderer.enabled = false;
+        sCollider.enabled = false;
+    }
+
+
     void Start()
     {
-        
+        sRenderer = GetComponent<SpriteRenderer>();
+        sCollider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
